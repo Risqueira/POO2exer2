@@ -83,3 +83,9 @@ public class Spotfypoo {
     
 }
 ```
+# atividade 8
+8. (Associação – Cliente e Conta Bancária)
+Um cliente possui uma conta bancária, mas a conta continua existindo mesmo sem o
+cliente (ex.: conta empresarial).
+ Modele Cliente e ContaBancaria.
+ Implemente o método depositar() na conta e simule um cliente usando-o.
