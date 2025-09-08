@@ -3,6 +3,12 @@
 # atividade 6
 
 # atividade 7
+7. (Agregação – Playlist e Músicas)
+Uma playlist do Spotify contém várias músicas.
+ As músicas podem existir fora da playlist.
+ Modele Playlist e Musica.
+ Crie um método tocarTodas() que percorre e toca (imprime na tela) cada
+música da playlist.
 ```java
 package spotfypoo;
 
@@ -57,12 +63,6 @@ public class Playist {
 package spotfypoo;
 
 /**
- * 7. (Agregação – Playlist e Músicas)
-Uma playlist do Spotify contém várias músicas.
- As músicas podem existir fora da playlist.
- Modele Playlist e Musica.
- Crie um método tocarTodas() que percorre e toca (imprime na tela) cada
-música da playlist.
  * @author Henrique 08/09/2025
  */
 public class Spotfypoo {
