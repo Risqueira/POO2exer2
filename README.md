@@ -181,3 +181,105 @@ calcularTempoViagem(distancia).
 
  Implemente Onibus e Bicicleta.
  Simule quanto tempo cada transporte levaria para percorrer 100 km.
+
+```java
+package poo9transporte;
+
+/**
+ *
+ * @author Henrique 09/09/2025
+ */
+public class POO9Transporte {
+
+    public static void main(String[] args) {
+        double distancia=100.0; //Km
+        
+        Onibus onibus= new Onibus(50, 80.0); //Onibus com 80Km/h
+        Bicicleta bike= new Bicicleta(1, 20.0); //Bicicleta com 20km/h
+        
+        System.out.println("Distancia: "+distancia + " km");
+        
+        System.out.println("Onibus ("+onibus.getCapacidade()+ " Passageiros)"
+        + onibus.calcularTempoViagem(distancia)+ "horas");
+        
+        System.out.println("Bicicleta (" + bike.getCapacidade() + " passageiro): "
+                + bike.calcularTempoViagem(distancia) + " horas");
+    
+    }
+
+}
+
+```
+```java
+package poo9transporte;
+
+public abstract class Transporte {
+
+    protected int capacidade;
+
+    public Transporte() {
+    }
+
+    public Transporte(int capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    // método abstrato: cada transporte calcula o tempo de um jeito
+    public abstract double calcularTempoViagem(double distancia);
+
+    public int getCapacidade() {
+        return capacidade;
+
+    }
+}
+
+```
+```java
+package poo9transporte;
+
+public class Onibus extends Transporte {
+
+    private double velocidadeMedia; //Km/h
+
+    public Onibus() {
+    }
+
+    public Onibus(int capacidade, double velocidadeMedia) {
+        super(capacidade);
+        this.velocidadeMedia = velocidadeMedia;
+    }
+
+    @Override
+    public double calcularTempoViagem(double distancia) {
+        return distancia / velocidadeMedia; //calculo de quanto tempo em horas
+    }
+
+}
+
+```
+```java
+package poo9transporte;
+
+public class Bicicleta extends Transporte {
+
+    private double velocidadeMedia; //Km/h
+
+    public Bicicleta() {
+    }
+
+    public Bicicleta(double velocidadeMedia) {
+        this.velocidadeMedia = velocidadeMedia;
+    }
+
+    public Bicicleta(int capacidade, double velocidadeMedia) {
+        super(capacidade);
+        this.velocidadeMedia = velocidadeMedia;
+    }
+    
+     @Override
+    public double calcularTempoViagem(double distancia) {
+        return distancia / velocidadeMedia;
+    }
+
+}
+```
