@@ -2,8 +2,7 @@
 
 # atividade 6
 
-# atividade 7
-7. (Agregação – Playlist e Músicas)
+# 7. (Agregação – Playlist e Músicas)
 Uma playlist do Spotify contém várias músicas.
  As músicas podem existir fora da playlist.
  Modele Playlist e Musica.
@@ -83,8 +82,7 @@ public class Spotfypoo {
     
 }
 ```
-# atividade 8
-8. (Associação – Cliente e Conta Bancária)
+# 8. (Associação – Cliente e Conta Bancária)
 Um cliente possui uma conta bancária, mas a conta continua existindo mesmo sem o
 cliente (ex.: conta empresarial).
  Modele Cliente e ContaBancaria.
