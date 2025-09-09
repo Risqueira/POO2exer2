@@ -283,3 +283,93 @@ public class Bicicleta extends Transporte {
 
 }
 ```
+
+# 10. (Método Concreto em Classe Abstrata – Animal)
+Crie a classe abstrata Animal com:
+
+ Método abstrato emitirSom().
+
+ Método concreto dormir() que imprime &quot;Zzz...&quot;.
+
+ Implemente Cachorro e Gato.
+
+ Teste chamando ambos os métodos em cada animal.
+
+```java
+package poo10animal;
+
+/**
+ *
+ * @author Henrique 09/09/2025
+ */
+public class POO10Animal {
+
+    public static void main(String[] args) {
+        Animal c = new Cachorro("dog");
+        Animal g = new Gato("auau");
+        c.emitirSom();
+        g.emitirSom();
+        c.dormir();
+        g.dormir();
+    }
+
+}
+```
+```java
+package poo10animal;
+
+public abstract class Animal {
+
+    protected String nome;
+
+    public Animal() {
+    }
+
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public void dormir() { //metodo concreto diz como fazer
+        System.out.println(nome + " Zzz...");
+    }
+
+    public abstract void emitirSom(); //metodo abstrato nao diz como fazer
+
+}
+
+```
+```java
+package poo10animal;
+
+public class Cachorro extends Animal{
+
+    public Cachorro() {
+    }
+
+    public Cachorro(String nome) {
+        super(nome);
+    }
+
+    @Override
+    public void emitirSom(){
+        System.out.println(nome+ " AU AU");
+    }
+}
+```
+```java
+package poo10animal;
+
+public class Gato extends Animal {
+
+    public Gato() {
+    }
+
+    public Gato(String nome) {
+        super(nome);
+    }
+    @Override
+    public void emitirSom(){
+        System.out.println(nome+ " MIAU MIAU");
+    }
+}
+```
