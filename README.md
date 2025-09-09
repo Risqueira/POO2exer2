@@ -89,3 +89,89 @@ Um cliente possui uma conta bancária, mas a conta continua existindo mesmo sem 
 cliente (ex.: conta empresarial).
  Modele Cliente e ContaBancaria.
  Implemente o método depositar() na conta e simule um cliente usando-o.
+
+```java
+package clientecontabancaria;
+
+/**
+ *
+ * @author Henrique 09/09/2025
+ */
+public class ClienteContaBancaria {
+
+    public static void main(String[] args) {
+        Cliente cliente1 = new Cliente("Joao Silva", "123.123.123.00");
+
+        ContaBancaria conta1 = new ContaBancaria(1001, 500, cliente1);
+
+        conta1.depositar(500.0);
+        conta1.exibirDados();
+
+    }
+
+}
+```
+```java
+package clientecontabancaria;
+
+public class Cliente {
+
+    private String nome;
+    private String cpf;
+
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+}
+
+```
+```java
+package clientecontabancaria;
+
+public class ContaBancaria {
+
+    private int numero;
+    private double saldo;
+    private Cliente cliente; //associaçao
+
+    public ContaBancaria() {
+    }
+
+    public ContaBancaria(int numero, double saldo, Cliente cliente) {
+        this.numero = numero;
+        this.saldo = 0.0;
+        this.cliente = cliente;
+    }
+
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo = saldo + valor;
+            System.out.println("Deposito de R$" + valor + " realizado com sucesso.");
+        } else {
+            System.out.println("Valor invalido para deposito.");
+        }
+    }
+
+    public void exibirDados() {
+        System.out.println("Conta:" + numero);
+        System.out.println("Saldo R$" + saldo);
+        if (cliente != null) {
+            System.out.println("Titular: " + cliente.getNome() + " | CPF: " + cliente.getCpf());
+        } else {
+            System.out.println("Conta sem titular");
+        }
+    }
+}
+```
