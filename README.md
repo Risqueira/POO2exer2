@@ -175,3 +175,11 @@ public class ContaBancaria {
     }
 }
 ```
+
+
+# 9. (Classe Abstrata – Transporte)
+Crie a classe abstrata Transporte com atributo capacidade e método abstrato
+calcularTempoViagem(distancia).
+
+ Implemente Onibus e Bicicleta.
+ Simule quanto tempo cada transporte levaria para percorrer 100 km.
