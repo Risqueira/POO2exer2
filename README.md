@@ -717,3 +717,134 @@ public class Teclado extends IntrumentoMusical {
     }
 }
 ```
+# 15. (Interface + Classe Abstrata – Loja Online)
+Uma loja online processa pagamentos de diferentes formas.
+
+ Crie a interface Pagamento com processarPagamento().
+
+ Crie a classe abstrata Produto com nome e preco.
+
+ Implemente Livro e Celular.
+
+ Faça um programa que crie produtos, escolha uma forma de pagamento e
+processe a compra.
+
+```java
+package poo15lojaonline;
+
+/**
+ *
+ * @author Henrique 10/09/2025
+ */
+public class POO15LojaOnline {
+
+    public static void main(String[] args) {
+        // Criando produtos
+        Produto livro = new Livro("Java para Iniciantes", 59.90, "João Silva");
+        Produto celular = new Celular("Galaxy S23", 3499.00, "Samsung");
+
+        // Exibindo informações
+        livro.exibirInfo();
+        celular.exibirInfo();
+
+        // Escolhendo forma de pagamento
+        Pagamento pagamento1 = new Pix();
+        Pagamento pagamento2 = new Boleto();
+
+        // Processando compras
+        pagamento1.processarPagamento(livro.getPreco());
+        pagamento2.processarPagamento(celular.getPreco());
+    }
+
+}
+```
+```java
+package poo15lojaonline;
+
+public interface Pagamento {
+
+    public void processarPagamento(double valor);
+}
+```
+```java
+package poo15lojaonline;
+
+public class Pix implements Pagamento {
+
+    @Override
+    public void processarPagamento(double valor) {
+        System.out.println("Pagamento de R$" + valor + " realizado via PIX.");
+    }
+}
+```
+```java
+package poo15lojaonline;
+
+public class Boleto implements Pagamento {
+
+    @Override
+    public void processarPagamento(double valor) {
+        System.out.println("Pagamento de R$" + valor + " realizado via Boleto.");
+    }
+}
+```
+```java
+package poo15lojaonline;
+
+public abstract class Produto {
+
+    protected String nome;
+    protected double preco;
+
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public abstract void exibirInfo();
+}
+```
+```java
+package poo15lojaonline;
+
+public class Livro extends Produto {
+
+    private String autor;
+
+    public Livro(String nome, double preco, String autor) {
+        super(nome, preco);
+        this.autor = autor;
+    }
+
+    @Override
+    public void exibirInfo() {
+        System.out.println("Livro: " + nome + " | Autor: " + autor + " | Preço: R$" + preco);
+    }
+}
+```
+```java
+package poo15lojaonline;
+
+public class Celular extends Produto {
+
+    private String marca;
+
+    public Celular(String nome, double preco, String marca) {
+        super(nome, preco);
+        this.marca = marca;
+    }
+
+    @Override
+    public void exibirInfo() {
+        System.out.println("Celular: " + nome + " | Marca: " + marca + " | Preço: R$" + preco);
+    }
+}
+```
