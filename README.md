@@ -373,3 +373,72 @@ public class Gato extends Animal {
     }
 }
 ```
+
+# 11. (Interface – Pagamento)
+Crie a interface Pagamento com o método processarPagamento(double valor).
+
+ Implemente em Pix e Boleto.
+
+ No programa principal, simule compras usando diferentes formas de pagamento.
+
+```java
+package poo11interface;
+
+/**
+ *
+ * @author Henrique 10/09/2025
+ */
+public class POO11interface {
+
+    public static void main(String[] args) {
+        
+        Pagamento pag1=new Pix("xiruzada123@gmail.com");
+        Pagamento pag2= new Boleto("1234,5678,9123,4567");
+        
+        System.out.println("Pagamentos abaixo:");
+        pag1.processarPagamento(250.0);
+        pag2.processarPagamento(500.0);
+    }
+
+}
+```
+```java
+package poo11interface;
+
+public interface Pagamento {
+    public void processarPagamento(double valor);
+}
+```
+```java
+package poo11interface;
+
+public class Pix implements Pagamento {
+    private String chavePix;
+
+    public Pix(String chavePix) {
+        this.chavePix = chavePix;
+    }
+    
+    @Override
+    public void processarPagamento(double valor){
+        System.out.println("Pagamento R$"+valor +" feito com pix com a chave "+chavePix);
+    }
+}
+```
+```java
+package poo11interface;
+
+public class Boleto implements Pagamento {
+
+    private String codigoBarras;
+
+    public Boleto(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
+    }
+
+    @Override
+    public void processarPagamento(double valor) {
+        System.out.println("Boleto gerado no valor R$" + valor + " . Codigo de barras:" + codigoBarras);
+    }
+}
+```
