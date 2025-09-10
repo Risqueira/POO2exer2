@@ -442,3 +442,61 @@ public class Boleto implements Pagamento {
     }
 }
 ```
+
+# 12. (Interface + múltiplas implementações – Drone)
+Um drone pode voar e filmar.
+ Crie interfaces Voavel e Filmavel.
+
+ Implemente a classe Drone que realiza as duas ações.
+
+ Demonstre o uso chamando ambos os métodos.
+
+```java
+package poo11drone;
+
+/**
+ *
+ * @author Henrique 10/09/2025
+ */
+public class POO11Drone {
+
+    public static void main(String[] args) {
+        Drone drone= new Drone();
+        
+        drone.voarDrone();
+        drone.filmarDrone();
+    }
+    
+}
+```
+```java
+package poo11drone;
+
+public interface Voavel {
+    public void voarDrone();
+}
+```
+```java
+package poo11drone;
+
+public interface Filmavel {
+    public void filmarDrone();
+}
+```
+```java
+package poo11drone;
+
+public class Drone implements Voavel, Filmavel {
+
+    @Override
+    public void voarDrone() {
+        System.out.println("O drone está voando ao infinito e alem");
+    }
+
+    @Override
+    public void filmarDrone() {
+        System.out.println("O drone está filmando em HD");
+    }
+
+}
+```
