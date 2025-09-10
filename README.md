@@ -512,6 +512,146 @@ Cada sala de aula tem alunos (que podem existir fora da escola).
 escola.
 
 ```java
+
+package poo13escola;
+
+/**
+ *
+ * @author Henrique 10/09/2025
+ */
+public class POO13Escola {
+
+    public static void main(String[] args) {
+        // Criando alunos
+        Aluno a1 = new Aluno("João");
+        Aluno a2 = new Aluno("Maria");
+        Aluno a3 = new Aluno("Pedro");
+        Aluno a4 = new Aluno("Ana");
+
+        // Criando salas
+        SalaDeAula sala1 = new SalaDeAula("101");
+        SalaDeAula sala2 = new SalaDeAula("102");
+
+        // Adicionando alunos às salas (agregação)
+        sala1.adicionarAluno(a1);
+        sala1.adicionarAluno(a2);
+
+        sala2.adicionarAluno(a3);
+        sala2.adicionarAluno(a4);
+
+        // Criando escola e adicionando salas (composição)
+        Escola escola = new Escola("Escola Central");
+        escola.adicionarSala(sala1);
+        escola.adicionarSala(sala2);
+
+        // Listando todos os alunos da escola
+        escola.listarAlunos();
+
+    }
+    
+}
+```
+
+```java
+package poo13escola;
+
+
+public class Aluno {
+    private String nome;
+
+    public Aluno() {
+    }
+
+    
+    public Aluno(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+
+```
+
+```java
+package poo13escola;
+
+import java.util.ArrayList;
+
+public class SalaDeAula {
+
+    private String nomeSala;
+    private ArrayList<Aluno> alunos; // agregação: alunos podem existir fora da sala
+
+    public SalaDeAula() {
+    }
+
+    public SalaDeAula(String nomeSala) {
+        this.nomeSala = nomeSala;
+        this.alunos = new ArrayList<>();
+    }
+
+    public void adicionarAluno(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public String getNomeSala() {
+        return nomeSala;
+    }
+}
+```
+
+```java
+package poo13escola;
+
+import java.util.ArrayList;
+
+public class Escola {
+
+    private String nome;
+    private ArrayList<SalaDeAula> salas; // composição: salas dependem da escola
+
+    public Escola() {
+    }
+
+    public Escola(String nome) {
+        this.nome = nome;
+        this.salas = new ArrayList<>();
+    }
+
+    public void adicionarSala(SalaDeAula sala) {
+        salas.add(sala);
+    }
+
+    public void listarAlunos() {
+        System.out.println("Alunos da escola " + nome + ":");
+        for (SalaDeAula sala : salas) {
+            System.out.println("Sala: " + sala.getNomeSala());
+            for (Aluno aluno : sala.getAlunos()) {
+                System.out.println(" - " + aluno.getNome());
+            }
+        }
+    }
+}
+```
+
+
+# 14. (Composição + Agregação – Escola)
+Uma escola é composta por várias salas de aula (se a escola fechar, as salas também
+deixam de existir).
+Cada sala de aula tem alunos (que podem existir fora da escola).
+
+ Modele as classes Escola, SalaDeAula e Aluno.
+
+ Crie um programa que cadastre alunos em diferentes salas e liste todos da
+escola.
+
+```java
 package poo14instmusicais;
 
 /**
