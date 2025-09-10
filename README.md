@@ -512,5 +512,68 @@ Cada sala de aula tem alunos (que podem existir fora da escola).
 escola.
 
 ```java
+package poo14instmusicais;
 
+/**
+ *
+ * @author Henrique 10/09/2025
+ */
+public class POO14InstMusicais {
+
+    public static void main(String[] args) {
+
+        IntrumentoMusical v = new Violao();
+        IntrumentoMusical b = new Bateria();
+        IntrumentoMusical t = new Teclado();
+
+        v.tocar();
+        b.tocar();
+        t.tocar();
+    }
+
+}
+```
+```java
+package poo14instmusicais;
+
+public abstract class IntrumentoMusical {
+
+    public void tocar() {
+
+    }
+
+}
+```
+```java
+package poo14instmusicais;
+
+public class Violao extends IntrumentoMusical {
+
+    @Override
+    public void tocar() {
+        System.out.println("Tocando violão");
+    }
+}
+```
+```java
+package poo14instmusicais;
+
+public class Bateria extends IntrumentoMusical {
+
+    @Override
+    public void tocar() {
+        System.out.println("Tocando bateria");
+    }
+}
+```
+```java
+package poo14instmusicais;
+
+public class Teclado extends IntrumentoMusical {
+
+    @Override
+    public void tocar() {
+        System.out.println("Tocando teclado");
+    }
+}
 ```
