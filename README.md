@@ -500,3 +500,17 @@ public class Drone implements Voavel, Filmavel {
 
 }
 ```
+
+# 13. (Composição + Agregação – Escola)
+Uma escola é composta por várias salas de aula (se a escola fechar, as salas também
+deixam de existir).
+Cada sala de aula tem alunos (que podem existir fora da escola).
+
+ Modele as classes Escola, SalaDeAula e Aluno.
+
+ Crie um programa que cadastre alunos em diferentes salas e liste todos da
+escola.
+
+```java
+
+```
